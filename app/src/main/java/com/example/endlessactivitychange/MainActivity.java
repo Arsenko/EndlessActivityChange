@@ -12,7 +12,7 @@ import java.time.Instant;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
-
+    private final static String siteUrl="http://myfile.org/";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,13 +20,14 @@ public class MainActivity extends AppCompatActivity {
 
         init();
     }
-    public void init(){
-        Button buttonBack= findViewById(R.id.buttonBack);
-        Button buttonForvard= findViewById(R.id.buttonForvard);
-        TextView outView=findViewById(R.id.outView);
 
-        Random rand=new Random();
-        outView.setText("http://myfile.org/"+rand.nextInt(100));
+    public void init() {
+        Button buttonBack = findViewById(R.id.buttonBack);
+        Button buttonForvard = findViewById(R.id.buttonForvard);
+        TextView outView = findViewById(R.id.outView);
+
+        Random rand = new Random();
+        outView.setText(siteUrl + rand.nextInt(100));
 
         buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         buttonForvard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this,MainActivity.class);
+                Intent intent = new Intent(MainActivity.this, MainActivity.class);
                 startActivity(intent);
             }
         });
